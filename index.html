@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Küçük Tablo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>📊 Küçük Tablo</h1>
+    <p>Türkçe formüllü küçük bir hesap tablosu: =TOPLA(B2:B7), =EĞER(C2&gt;B2;"aştı";"tamam"), ondalıkta virgül. Bir hücreyi seçince neye bağlı olduğunu görürsün.</p>
+  </header>
+
+  <main>
+    <section class="sol">
+      <div class="formul-cubugu">
+        <span id="seciliAdres" class="adres">A1</span>
+        <span class="fx">fx</span>
+        <input id="formulGiris" spellcheck="false" autocomplete="off" aria-label="Seçili hücrenin içeriği">
+      </div>
+      <div class="tablo-kap" id="tabloKap">
+        <table class="tablo" id="tablo" aria-label="Hesap tablosu"></table>
+      </div>
+      <p class="not">Yaz ve Enter'a bas. Oklarla gez, Tab ile sağa geç, Delete ile sil. Çift tıklayınca hücrenin içini düzenlersin.</p>
+    </section>
+
+    <aside class="sag">
+      <div class="kart" id="bilgi"></div>
+      <div class="kart">
+        <h2>Fonksiyonlar</h2>
+        <ul class="fonklar">
+          <li><code>TOPLA(B2:B7)</code> toplam</li>
+          <li><code>ORTALAMA</code>, <code>MİN</code>, <code>MAK</code>, <code>SAY</code></li>
+          <li><code>EĞER(koşul;evet;hayır)</code></li>
+          <li><code>EĞERSAY(E2:E7;"aştı")</code>, <code>ETOPLA(D2:D7;"&lt;0")</code></li>
+          <li><code>VE</code>, <code>YADA</code>, <code>DEĞİL</code></li>
+          <li><code>YUVARLA(x;2)</code>, <code>MUTLAK</code>, <code>KAREKÖK</code></li>
+          <li><code>BİRLEŞTİR</code>, <code>UZUNLUK</code>, metin birleştirme <code>&amp;</code></li>
+        </ul>
+        <p class="not">Bağımsız değişkenleri <b>;</b> ile ayır. Hatalar: #BÖL/0!, #AD?, #DEĞER!, #SAYI!, #SÖZDİZİMİ!, #DÖNGÜ!</p>
+      </div>
+      <div class="kart islemler">
+        <button type="button" id="ornek" class="ikinci">Örnek koy</button>
+        <button type="button" id="csvAl" class="ikinci">CSV indir</button>
+        <button type="button" id="yedekAl" class="ikinci">Yedek al</button>
+        <label class="ikinci dugme">Yedek yükle<input id="yedekYukle" type="file" accept="application/json,.json"></label>
+        <button type="button" id="temizle" class="ikinci tehlike">Hepsini sil</button>
+        <p class="not" id="islemYazi">Her şey sadece bu tarayıcıda duruyor.</p>
+      </div>
+    </aside>
+  </main>
+
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>
